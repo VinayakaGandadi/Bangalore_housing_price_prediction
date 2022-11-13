@@ -1,9 +1,12 @@
 import pandas as pd
 import pickle
+from joblib import dump, load
+
 from flask import Flask ,render_template,request
 
 app=Flask(__name__)
 data=pd.read_csv('cleaned.csv')
+#pipe = load('linearegression.joblib')
 pipe=pickle.load(open('linearegression.pkl','rb'))
 @app.route('/')
 def index():
